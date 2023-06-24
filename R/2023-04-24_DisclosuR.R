@@ -58,7 +58,7 @@ conference_call_segmenter <- function(file,
 
     # get end of date and date
     date_end <- "Copyright"
-    date <- stringr::str_match(str_replace_all(str_squish(text), "[\r\n]" , ""), paste("Wire", "\\s*(.*?)\\s*", date_end, sep = ""))[[2]]
+    date <- stringr::str_match(stringr::str_replace_all(str_squish(text), "[\r\n]" , ""), paste("Wire", "\\s*(.*?)\\s*", date_end, sep = ""))[[2]]
 
     # convert the string to a date variable
     date <- as.Date(date, "%B %d, %Y %A")
@@ -625,9 +625,9 @@ newswire_segmenter <- function(file,
 
 
     # reformat text
-    text <- str_replace_all(text, "[\r\n]" , " ")
-    text <- str_replace_all(text, "[\r\n]" , " ")
-    text <- str_squish(text)
+    text <- stringr::str_replace_all(text, "[\r\n]" , " ")
+    text <- stringr::str_replace_all(text, "[\r\n]" , " ")
+    text <- stringr::str_squish(text)
 
     # get newswire
     newswires <- c("Canada NewsWire", "PR Newswire", "ENP Newswire", "States News Service", "Marketwire",
@@ -664,10 +664,10 @@ newswire_segmenter <- function(file,
 
     # get end of date and date
     date_end <- "Copyright"
-    date <- str_match(text, paste(newswire, "\\s*(.*?)\\s*", date_end, sep = ""))[[2]]
+    date <- stringr::str_match(text, paste(newswire, "\\s*(.*?)\\s*", date_end, sep = ""))[[2]]
 
     # convert data to real date
-    date <- str_split(date, pattern = week_days)[[1]][1]
+    date <- stringr::str_split(date, pattern = week_days)[[1]][1]
     date <- as.character(date)
     date <- as.Date(date, format = "%B %d, %Y")
 
@@ -832,7 +832,7 @@ newswire_segmenter <- function(file,
           category <- keywords$Category[j]
           keywords_list <- unlist(strsplit(keywords$Keywords[j], "\\|"))
           # count the number of matches in the text column of press_data_temp
-          count <- sum(str_count(press_data_temp$preprocessed_title[i], stringr::regex(keywords_list, ignore_case = TRUE)))
+          count <- sum(stringr::str_count(press_data_temp$preprocessed_title[i], stringr::regex(keywords_list, ignore_case = TRUE)))
           # store the count for this category
           counts[j] <- count
           # update the category column in press_data_temp
@@ -843,7 +843,7 @@ newswire_segmenter <- function(file,
 
       # add the most frequent column name to a new column
       # Create new column to store column names with highest values
-      press_data_temp$category_Graffin <- apply(press_data_temp[, 34:ncol(press_data_temp)], 1, function(row) {
+      press_data_temp$category_Graffin <- apply(press_data_temp[, which(names(press_data_temp) == "preprocessed_title"):ncol(press_data_temp)], 1, function(row) {
           # Check if all values in the row are zero
           if(all(row == 0)){
             return("Others")
@@ -893,7 +893,7 @@ newswire_segmenter <- function(file,
 
     # Use grepl() to check if any of the terms are found in category_Graffin
     press_data_temp <- press_data_temp %>%
-      mutate(valence_category = ifelse(
+      dplyr::mutate(valence_category = ifelse(
         grepl(terms_positive, .data$category_Graffin), "positive",
         ifelse(grepl(terms_negative, .data$category_Graffin), "negative",
                ifelse(grepl(terms_neutral, .data$category_Graffin), "neutral",
