@@ -1,6 +1,6 @@
-9e3180426815455666f7fc48608323f4 *DESCRIPTION
-31e161b8095f5a667f6904a78e3deea2 *NAMESPACE
-adfaf9d7aebb77c588795620b7939542 *R/2023-04-24_DisclosuR.R
+c93163f4440d970753a2291e4af0778e *DESCRIPTION
+333744ba261f474cf8e07b61baac9912 *NAMESPACE
+94277043ae57d64f6507eaf58f02ef0b *R/2023-04-24_DisclosuR.R
 259d5342067a5ba2341fab15c16f1459 *inst/WORDLIST.txt
 f470cc088223f949820f220ac0729ca3 *inst/examples/earnings_calls/earnings_example_01.pdf
 197018204b535d1316a02044aff6bf63 *inst/examples/earnings_calls/earnings_example_02.pdf
@@ -8,6 +8,6 @@ a0ea2317225f7481ad6e371b2a95cfda *inst/examples/newswire/example_02.pdf
 5fd164e356056ecde7cf8ee3a2362ab5 *inst/examples/newswire/newswire_example_01.pdf
 62b0e407cf54710fdd36072c9a88a407 *man/conference_call_segmenter.Rd
 02529980b23d9a8a07b64ed439caa75d *man/conference_call_segmenter_folder.Rd
-7005482dd5df874776c330001114dc3e *man/impression_offsetting.Rd
+2320fee4fa31e1d213985c4d54bcd32d *man/impression_offsetting.Rd
 203db6de5b15ab80f66a988c0b6b38d1 *man/newswire_segmenter.Rd
 01d84d5086582b032910cc1a452a90a7 *man/newswire_segmenter_folder.Rd
