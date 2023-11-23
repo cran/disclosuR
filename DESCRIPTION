@@ -1,8 +1,8 @@
 Package: disclosuR
 Type: Package
 Title: Text Conversion from Nexis Uni PDFs to R Data Frames
-Version: 0.5.1
-Date: 2023-06-05
+Version: 0.5.2
+Date: 2023-11-023
 Authors@R: 
   person("Jonas", "Röttger", role = c("aut", "cre"), 
          email = "jonas.roettger@gmx.net")
@@ -13,8 +13,8 @@ Imports: dplyr, lubridate, pdftools, qdap, SentimentAnalysis, stringi,
 Encoding: UTF-8
 RoxygenNote: 7.2.3
 NeedsCompilation: no
-Packaged: 2023-07-03 07:03:42 UTC; U711123
+Packaged: 2023-11-23 14:12:48 UTC; jonas
 Author: Jonas Röttger [aut, cre]
 Maintainer: Jonas Röttger <jonas.roettger@gmx.net>
 Repository: CRAN
-Date/Publication: 2023-07-03 07:30:02 UTC
+Date/Publication: 2023-11-23 14:30:02 UTC
