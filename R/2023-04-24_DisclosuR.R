@@ -294,7 +294,6 @@ conference_call_segmenter <- function(file,
 
       }
 
-
       q_and_a_text <- sub(".*Questions and Answers", "", text)
 
 
@@ -669,7 +668,6 @@ newswire_segmenter <- function(file,
     # convert data to real date
     date <- stringr::str_split(date, pattern = week_days)[[1]][1]
     date <- as.character(date)
-    date <- as.Date(date, format = "%B %d, %Y")
 
     # get weekday
     weekday <- weekdays(date)
